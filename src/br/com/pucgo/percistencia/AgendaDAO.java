@@ -82,12 +82,7 @@ public class AgendaDAO {
 			return 0;
 		}
 	}
-
-	/**
-		 *  TERminar inclusao esta dando errada, fazer alteração, e exclusao por ultimo testar
-		 * @param agenda
-		 * @return
-		 */
+	
 	public boolean incluirAgendaTelefones(Agenda agenda) {
 		try {
 			TelefoneDAO telefoneDAO = new TelefoneDAO();
@@ -113,6 +108,9 @@ public class AgendaDAO {
 		}
 	}
 	
+	/*
+	 * Alterar e Exlcuir não foram finalizados
+	 */	
 	public boolean alterarAgendaTelefones(Agenda agenda) {
 		try {
 			
