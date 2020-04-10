@@ -19,7 +19,7 @@ public class AgendaService {
 	
 	public boolean adicionarNaAgenda(Agenda agenda) {
 		//faz de conta que tem validação
-		return agendaDAO.IncluirAgendaTelefones(agenda);
+		return agendaDAO.incluirAgendaTelefones(agenda);
 	}
 	
 }

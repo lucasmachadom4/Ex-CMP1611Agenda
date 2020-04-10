@@ -61,7 +61,7 @@ public class AgendaDAO {
 		}
 	}
 	
-	private int IncluirAgenda(Agenda agenda) {
+	private int incluirAgenda(Agenda agenda) {
 		try {			
 			Connection conn = conexaoDB.abreConexao();
 			Statement statement = conn.createStatement();
@@ -88,29 +88,48 @@ public class AgendaDAO {
 		 * @param agenda
 		 * @return
 		 */
-	public boolean IncluirAgendaTelefones(Agenda agenda) {
+	public boolean incluirAgendaTelefones(Agenda agenda) {
 		try {
 			TelefoneDAO telefoneDAO = new TelefoneDAO();
 			for(int i=0; i< agenda.getTelefones().size(); i++) {
 				agenda.getTelefones().get(i).setId(  telefoneDAO.incluirTelefone( agenda.getTelefones().get(i) ) );
 			}
-			int id;
-			id = IncluirAgenda(agenda);
+			int agendaId;
+			agendaId = incluirAgenda(agenda);
 			
 			
-			Connection conn = conexaoDB.abreConexao();
-			Statement statement = conn.createStatement();
 			for(int i=0; i< agenda.getTelefones().size(); i++) {
-				statement.executeUpdate("INSERT INTO agenda_telefones(agenda_id, telefone_id) VALUES(" + id + ", "
+
+				Connection conn = conexaoDB.abreConexao();
+				Statement statement = conn.createStatement();
+				statement.executeUpdate("INSERT INTO agenda_telefones(agenda_id, telfone_id) VALUES(" + agendaId + ", "
 						+ agenda.getTelefones().get(i).getId() + ");");
-			}			
-			
-			conn.close();			
+				conn.close();
+			}						
 			return true;
 		} catch (Exception e) {
 			System.out.println("Erro ao incluir: " + e.getMessage());
 			return false;
 		}
 	}
-
+	
+	public boolean alterarAgendaTelefones(Agenda agenda) {
+		try {
+			
+			return true;
+		} catch (Exception e) {
+			System.out.println("Erro ao alterar: " + e.getMessage());
+			return false;
+		}
+	}
+	
+	public boolean excluirAgendaTelefones(Agenda agenda) {
+		try {
+			
+			return true;
+		} catch (Exception e) {
+			System.out.println("Erro ao incluir: " + e.getMessage());
+			return false;
+		}
+	}
 }

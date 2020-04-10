@@ -16,13 +16,13 @@ public class Main {
 		
 		Agenda agenda = new Agenda();
 		
-		agenda.setNome("Matheus Machado");		
-		agenda.setCategoria(new Categoria(1));
+		agenda.setNome("Melisandra Alq");		
+		agenda.setCategoria(new Categoria(4));
 		
 		
 		ArrayList<Telefone> listaTelefones = new ArrayList<Telefone>();		
-		listaTelefones.add(new Telefone("(62) 2253-6659", new Tipo(1) ) );
-		listaTelefones.add(new Telefone("(62) 9 9666-8956", new Tipo(3) ) );
+		listaTelefones.add(new Telefone("(62) 0000-0009", new Tipo(3) ) );
+		listaTelefones.add(new Telefone("(62) 9 5566-8009", new Tipo(2) ) );
 		agenda.setTelefones(listaTelefones);
 		
 		agendaController.adicionarNaAgenda(agenda);
